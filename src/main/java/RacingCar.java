@@ -8,6 +8,16 @@ public class RacingCar {
 
     private static Scanner scanner = new Scanner(System.in);
 
+
+
+    public String getCarNamesByDistance(Car car, int distance){
+        if(car.getDistance() == distance){
+            return car.getCarName();
+        }
+
+        return "";
+    }
+
     public List<Car> createCarList() {
         String cars = scanner.next();
         String[] carArray = cars.split(",");
