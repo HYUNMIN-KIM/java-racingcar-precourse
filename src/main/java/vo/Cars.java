@@ -1,5 +1,7 @@
 package vo;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
@@ -50,6 +52,12 @@ public class Cars {
         }
 
         return sb.toString();
+    }
+
+    public int getLongestDistance(){
+        carList.sort(Comparator.comparing(Car::getDistance));
+        Collections.reverse(carList);
+        return carList.get(0).getDistance();
     }
 
 
