@@ -31,4 +31,26 @@ public class Cars {
 
         return 0;
     }
+
+    public void printCarRacer() {
+        StringBuffer sb = new StringBuffer();
+        for(Car car : carList){
+            sb.append(car.getCarName());
+            sb.append(drawDistance(car.getDistance()));
+            sb.append("\n");
+        }
+
+        System.out.println(sb);
+    }
+
+    private String drawDistance(int distance) {
+        StringBuffer sb = new StringBuffer();
+        for(int i= 0; i < distance; i++){
+            sb.append("-");
+        }
+
+        return sb.toString();
+    }
+
+
 }
