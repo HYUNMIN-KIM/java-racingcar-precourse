@@ -13,6 +13,10 @@ public class Cars {
         this.carList = carList;
     }
 
+    public List<Car> getCarList() {
+        return carList;
+    }
+
     public void moveCars(){
         for(Car car : carList){
             int distance = car.getDistance();
