@@ -1,5 +1,3 @@
-package vo;
-
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -8,6 +6,8 @@ import java.util.Random;
 public class Cars {
 
     private List<Car> carList;
+
+    private final int STANDARD_NUM = 4;
 
     public Cars(List<Car> carList){
         this.carList = carList;
@@ -19,23 +19,13 @@ public class Cars {
 
     public void moveCars(){
         for(Car car : carList){
-            int distance = car.getDistance();
-            distance = distance + addDistance(randomNumber());
-            car.setDistance(distance);
+            car.moveCar(car,randomNumber());
         }
     }
 
-    private int randomNumber() {
+    public int randomNumber() {
         Random rn = new Random();
         return rn.nextInt(10);
-    }
-
-    private int addDistance(int random) {
-        if(random >= 4) {
-            return 1;
-        }
-
-        return 0;
     }
 
     public void printCarRacer() {
