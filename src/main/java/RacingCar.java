@@ -6,7 +6,7 @@ public class RacingCar {
 
     private static Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args){
+    public static void main(String[] args)  {
         RacingCar rc = new RacingCar();
         System.out.println("자동차 생성 : ");
         Cars cars = new Cars(rc.createCarList());
@@ -20,7 +20,7 @@ public class RacingCar {
 
         int longestDistance = cars.getLongestDistance();
         for(Car car : cars.getCarList()){
-            System.out.println(rc.getCarNamesByDistance(car, longestDistance) + " ");
+            System.out.print(rc.getCarNamesByDistance(car, longestDistance) + " ");
         }
 
         System.out.println("승리하였습니다.");
@@ -38,7 +38,7 @@ public class RacingCar {
         return "";
     }
 
-    public List<Car> createCarList() {
+    public List<Car> createCarList()  {
         String cars = scanner.next();
         validationArray(cars);
         String[] carArray = cars.split(",");
@@ -61,18 +61,20 @@ public class RacingCar {
                 .build();
     }
 
-    public Exception validationArray(String cars){
+    public void validationArray(String cars) {
         if(!cars.contains(",")){
-            return new Exception("이름 나열을 다시 해주세요.");
+            System.out.println("이름 입력 오류");
+            throw new RuntimeException();
         }
-        return null;
+
     }
 
-    public Exception validationName(String carName){
+    public void validationName(String carName) {
         if(carName.equals("")){
-            return new Exception("이름 나열을 다시 해주세요.");
+            System.out.println("이름 입력 오류");
+            throw new RuntimeException();
         }
-        return null;
+
     }
 
 }

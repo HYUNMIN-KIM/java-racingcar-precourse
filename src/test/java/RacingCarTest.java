@@ -43,19 +43,14 @@ class RacingCarTest {
         assertThat(car.getDistance() == 0);
     }
 
-    @Test
+    @Test()
     void validationArray() {
-        Exception exception = racingCar.validationArray("ab");
-        String expectedMessage = "이름 나열을 다시 해주세요.";
-        String actualMessage = exception.getMessage();
-        assertTrue(actualMessage.contains(expectedMessage));
-    }
+        assertThrows(Exception.class, () ->racingCar.validationArray("ab"));
+            }
 
     @Test
-    void validationName() {
-        Exception exception = racingCar.validationName("");
-        String expectedMessage = "이름 나열을 다시 해주세요.";
-        String actualMessage = exception.getMessage();
-        assertTrue(actualMessage.contains(expectedMessage));
+    void validationName()  {
+        assertThrows(Exception.class, () ->racingCar.validationArray(""));
+
     }
 }
