@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.Scanner;
 
 public class RacingCar {
@@ -41,10 +40,13 @@ public class RacingCar {
 
     public List<Car> createCarList() {
         String cars = scanner.next();
+        validationArray(cars);
         String[] carArray = cars.split(",");
+
         List<Car> carList = new ArrayList<>();
 
         for(String carName : carArray) {
+            validationName(carName);
             carList.add(createCar(carName));
         }
         carList.removeIf(n -> n.getCarName().length() == 0);
@@ -57,6 +59,20 @@ public class RacingCar {
                 .carName(carName)
                 .distance(0)
                 .build();
+    }
+
+    public Exception validationArray(String cars){
+        if(!cars.contains(",")){
+            return new Exception("이름 나열을 다시 해주세요.");
+        }
+        return null;
+    }
+
+    public Exception validationName(String carName){
+        if(carName.equals("")){
+            return new Exception("이름 나열을 다시 해주세요.");
+        }
+        return null;
     }
 
 }
